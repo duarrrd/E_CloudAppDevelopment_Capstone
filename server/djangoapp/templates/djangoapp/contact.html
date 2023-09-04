@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Dealership Review</title>
+    <title>Contact Us</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
@@ -21,18 +21,27 @@
               </button>
               <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
-                  <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
-                  </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'djangoapp:index' %}">Home</a>
+                    </li>                    
                   <li class="nav-item">
                     <a class="nav-link" href="{% url 'djangoapp:about' %}">About Us</a>
-                </li>                
+                  </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="{% url 'djangoapp:contact' %}">Contact Us</a>
+                    <a class="nav-link active" aria-current="page" href="#">Contact Us</a>
                   </li>
                 </ul>
               </div>
             </div>
         </nav>
+        <div class="card">
+            <div class="card-body">
+                <h2>
+                    Contact Us
+                </h2>
+                <p>451 Mitchell Village Suite 805 - Maryland</p>
+                <p>(953) 648-7601 x4455</p>
+            </div>
+        </div>
     </body>
 </html>
