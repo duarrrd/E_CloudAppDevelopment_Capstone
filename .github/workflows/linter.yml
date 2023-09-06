@@ -8,14 +8,6 @@ on:
   workflow_dispatch:
 
 jobs: # list of things to do
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-dotnet@v3
-      - run: dotnet --version
-      - run: dotnet build
-      
   lint_function_js:
     name: Linting JavaScript Function 
     runs-on: ubuntu-latest 
