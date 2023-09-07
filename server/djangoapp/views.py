@@ -10,6 +10,7 @@ from django.contrib import messages
 from datetime import datetime
 import logging
 import json
+import requests
 
 # Get an instance of a logger
 logger = logging.getLogger(__name__)
@@ -87,7 +88,26 @@ def registration_request(request):
 def get_dealerships(request):
     context = {}
     if request.method == "GET":
-        return render(request, 'djangoapp/index.html', context)
+        # Define the API endpoint URL
+        endpoint_url = "https://easygoingmai-3000.theiadocker-0-labs-prod-theiak8s-4-tor01.proxy.cognitiveclass.ai/dealerships/get"
+
+        try:
+            # Make an HTTP GET request to the API endpoint
+            response = requests.get(endpoint_url)
+
+            # Check if the request was successful (status code 200)
+            if response.status_code == 200:
+                # Parse the JSON response data (assuming it's JSON)
+                dealership_data = response.json()
+
+                # Add the dealership data to the context
+                context['dealerships'] = dealership_data
+
+        except requests.exceptions.RequestException as e:
+            # Handle any request errors here
+            print(f"Error: {e}")
+
+    return render(request, 'djangoapp/index.html', context)
 
 
 # Create a `get_dealer_details` view to render the reviews of a dealer
